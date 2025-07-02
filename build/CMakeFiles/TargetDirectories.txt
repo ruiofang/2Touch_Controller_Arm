@@ -1,0 +1,12 @@
+/home/ruio/2Touch_Controller_Arm/build/CMakeFiles/Touch_Controller_Arm.dir
+/home/ruio/2Touch_Controller_Arm/build/CMakeFiles/run.dir
+/home/ruio/2Touch_Controller_Arm/build/CMakeFiles/clean-all.dir
+/home/ruio/2Touch_Controller_Arm/build/CMakeFiles/check-config.dir
+/home/ruio/2Touch_Controller_Arm/build/CMakeFiles/package.dir
+/home/ruio/2Touch_Controller_Arm/build/CMakeFiles/package_source.dir
+/home/ruio/2Touch_Controller_Arm/build/CMakeFiles/edit_cache.dir
+/home/ruio/2Touch_Controller_Arm/build/CMakeFiles/rebuild_cache.dir
+/home/ruio/2Touch_Controller_Arm/build/CMakeFiles/list_install_components.dir
+/home/ruio/2Touch_Controller_Arm/build/CMakeFiles/install.dir
+/home/ruio/2Touch_Controller_Arm/build/CMakeFiles/install/local.dir
+/home/ruio/2Touch_Controller_Arm/build/CMakeFiles/install/strip.dir
