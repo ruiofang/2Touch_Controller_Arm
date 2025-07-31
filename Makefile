@@ -1,5 +1,5 @@
 # 双Touch设备双机械臂控制系统 Makefile
-# 版本: 1.0.0
+# 版本: 2.0.0
 
 # 编译器设置
 CXX = g++
@@ -20,9 +20,9 @@ INCLUDES = -I$(OPENHAPTICS_INCLUDE)
 LIBS = -L$(OPENHAPTICS_LIB) -lHD -lHDU -lrt -lpthread -lncurses
 
 # 源文件
-SOURCES = Touch_Controller_Arm.cpp conio.c
-OBJECTS = Touch_Controller_Arm.o conio.o
-TARGET = Touch_Controller_Arm
+SOURCES = Touch_Controller_Arm2.cpp conio.c
+OBJECTS = Touch_Controller_Arm2.o conio.o
+TARGET = Touch_Controller_Arm2
 
 # 配置文件
 CONFIG_FILE = config.ini
@@ -52,9 +52,9 @@ $(TEST_TARGET): $(TEST_OBJECTS)
 	@echo "✅ 测试程序编译完成: $(TEST_TARGET)"
 
 # 编译C++源文件
-Touch_Controller_Arm.o: Touch_Controller_Arm.cpp ConfigLoader.h
-	@echo "🔨 编译: Touch_Controller_Arm.cpp"
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -c Touch_Controller_Arm.cpp -o Touch_Controller_Arm.o
+Touch_Controller_Arm2.o: Touch_Controller_Arm2.cpp ConfigLoader.h
+	@echo "🔨 编译: Touch_Controller_Arm2.cpp"
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c Touch_Controller_Arm2.cpp -o Touch_Controller_Arm2.o
 
 # 编译C源文件
 conio.o: conio.c conio.h
@@ -146,15 +146,15 @@ uninstall:
 # 创建软件包
 package: release
 	@echo "📦 创建软件包..."
-	mkdir -p dual-touch-arm-controller-1.0.0
-	cp $(TARGET) dual-touch-arm-controller-1.0.0/
-	cp $(CONFIG_FILE) dual-touch-arm-controller-1.0.0/
-	cp $(DOCS) dual-touch-arm-controller-1.0.0/
-	cp 启动双机械臂控制.sh dual-touch-arm-controller-1.0.0/
-	cp README.md dual-touch-arm-controller-1.0.0/ 2>/dev/null || true
-	tar -czf dual-touch-arm-controller-1.0.0.tar.gz dual-touch-arm-controller-1.0.0/
-	rm -rf dual-touch-arm-controller-1.0.0/
-	@echo "✅ 软件包创建完成: dual-touch-arm-controller-1.0.0.tar.gz"
+	mkdir -p dual-touch-arm-controller-2.0.0
+	cp $(TARGET) dual-touch-arm-controller-2.0.0/
+	cp $(CONFIG_FILE) dual-touch-arm-controller-2.0.0/
+	cp $(DOCS) dual-touch-arm-controller-2.0.0/
+	cp 启动双机械臂控制.sh dual-touch-arm-controller-2.0.0/ 2>/dev/null || true
+	cp README.md dual-touch-arm-controller-2.0.0/ 2>/dev/null || true
+	tar -czf dual-touch-arm-controller-2.0.0.tar.gz dual-touch-arm-controller-2.0.0/
+	rm -rf dual-touch-arm-controller-2.0.0/
+	@echo "✅ 软件包创建完成: dual-touch-arm-controller-2.0.0.tar.gz"
 
 # 测试编译
 test-compile: clean
@@ -166,7 +166,7 @@ test-compile: clean
 format:
 	@echo "🎨 格式化代码..."
 	@if command -v clang-format >/dev/null 2>&1; then \
-		clang-format -i Touch_Controller_Arm.cpp; \
+		clang-format -i Touch_Controller_Arm2.cpp; \
 		echo "✅ 代码格式化完成"; \
 	else \
 		echo "⚠️  clang-format未安装，跳过格式化"; \
@@ -202,11 +202,11 @@ help:
 	@echo "  check-config - 检查配置文件"
 	@echo ""
 	@echo "使用示例:"
-	@echo "  make               # 编译程序"
-	@echo "  make run           # 编译并运行"
-	@echo "  make debug         # 编译调试版本"
-	@echo "  make check         # 检查环境"
-	@echo "  make clean         # 清理文件"
+	@echo "  make         # 编译程序"
+	@echo "  make run     # 编译并运行程序"
+	@echo "  make debug   # 编译调试版本"
+	@echo "  make check   # 检查环境"
+	@echo "  make clean   # 清理文件"
 	@echo "  sudo make install  # 安装到系统"
 	@echo ""
 	@echo "配置:"
@@ -215,10 +215,11 @@ help:
 	@echo "  库目录: $(OPENHAPTICS_LIB)"
 	@echo "  编译器: $(CXX)"
 	@echo "  C++标准: C++11"
+	@echo "  程序文件: $(TARGET)"
 	@echo "=================================================="
 
 # 依赖关系
-Touch_Controller_Arm.cpp: ConfigLoader.h
+Touch_Controller_Arm2.cpp: ConfigLoader.h
 conio.c: conio.h
 
 # 运行设备配置测试
